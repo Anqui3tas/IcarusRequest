@@ -1,0 +1,15 @@
+    overseerr:
+        image: linuxserver/overseerr:latest
+        container_name: overseerr
+        environment:
+            - LOG_LEVEL=debug
+            - TZ=America/Los_Angeles
+            - PORT=4226 #optional
+        dns:
+            - 1.1.1.1
+            - 8.8.8.8
+        network_mode: host
+        volumes:
+            - /path to config:/app/config
+            - /path to config/config/logos:/app/overseerr/public
+        restart: unless-stopped
